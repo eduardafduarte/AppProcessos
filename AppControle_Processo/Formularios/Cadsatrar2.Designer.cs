@@ -43,17 +43,20 @@
             this.txtRequerido = new System.Windows.Forms.TextBox();
             this.lblRequerido = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblNumero = new System.Windows.Forms.Label();
             this.lblProcesso = new System.Windows.Forms.Label();
+            this.txtNumero = new System.Windows.Forms.TextBox();
             this.lblDescricao = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtDt_Abertura = new System.Windows.Forms.TextBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.voltarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grpRequerente.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpRequerente
@@ -185,38 +188,36 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.lblNumero);
             this.groupBox3.Controls.Add(this.lblProcesso);
+            this.groupBox3.Controls.Add(this.txtNumero);
             this.groupBox3.Controls.Add(this.lblDescricao);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.txtDescricao);
             this.groupBox3.Controls.Add(this.txtDt_Abertura);
             this.groupBox3.Location = new System.Drawing.Point(51, 357);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(832, 260);
+            this.groupBox3.Size = new System.Drawing.Size(840, 259);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dados do processo";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // lblNumero
-            // 
-            this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(102, 200);
-            this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(35, 13);
-            this.lblNumero.TabIndex = 5;
-            this.lblNumero.Text = "label2";
-            this.lblNumero.Click += new System.EventHandler(this.lblNumero_Click);
-            // 
             // lblProcesso
             // 
             this.lblProcesso.AutoSize = true;
-            this.lblProcesso.Location = new System.Drawing.Point(36, 200);
+            this.lblProcesso.Location = new System.Drawing.Point(36, 193);
             this.lblProcesso.Name = "lblProcesso";
             this.lblProcesso.Size = new System.Drawing.Size(51, 13);
-            this.lblProcesso.TabIndex = 4;
+            this.lblProcesso.TabIndex = 7;
             this.lblProcesso.Text = "Processo";
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.Location = new System.Drawing.Point(106, 190);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(100, 20);
+            this.txtNumero.TabIndex = 6;
+            this.txtNumero.TextChanged += new System.EventHandler(this.txtNumero_TextChanged);
             // 
             // lblDescricao
             // 
@@ -254,7 +255,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(310, 655);
+            this.btnCadastrar.Location = new System.Drawing.Point(319, 639);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(98, 23);
             this.btnCadastrar.TabIndex = 1;
@@ -264,13 +265,30 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(439, 655);
+            this.btnLimpar.Location = new System.Drawing.Point(439, 639);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 2;
             this.btnLimpar.Text = "LIMPAR";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.voltarToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(949, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // voltarToolStripMenuItem
+            // 
+            this.voltarToolStripMenuItem.Name = "voltarToolStripMenuItem";
+            this.voltarToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.voltarToolStripMenuItem.Text = "Voltar";
+            this.voltarToolStripMenuItem.Click += new System.EventHandler(this.voltarToolStripMenuItem_Click);
             // 
             // frmCadastrar2
             // 
@@ -282,6 +300,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.grpRequerente);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "frmCadastrar2";
             this.Text = "Cadastrar";
             this.grpRequerente.ResumeLayout(false);
@@ -290,7 +309,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -311,13 +333,15 @@
         private System.Windows.Forms.Label lblAdv_Requerido;
         private System.Windows.Forms.TextBox txtRequerido;
         private System.Windows.Forms.Label lblRequerido;
-        private System.Windows.Forms.Label lblProcesso;
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.TextBox txtDt_Abertura;
-        private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Label lblProcesso;
+        private System.Windows.Forms.TextBox txtNumero;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem voltarToolStripMenuItem;
     }
 }

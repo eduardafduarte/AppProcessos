@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.movimentaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processosDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.processosDataSet = new AppControle_Processo.ProcessosDataSet();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
@@ -44,11 +45,13 @@
             this.tableAdapterManager = new AppControle_Processo.ProcessosDataSet1TableAdapters.TableAdapterManager();
             this.processosDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Movimentacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processosDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processosDataSet)).BeginInit();
@@ -60,7 +63,9 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.movimentaçãoToolStripMenuItem});
+            this.movimentaçãoToolStripMenuItem,
+            this.cadastrarToolStripMenuItem,
+            this.consultaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1013, 24);
@@ -70,9 +75,16 @@
             // movimentaçãoToolStripMenuItem
             // 
             this.movimentaçãoToolStripMenuItem.Name = "movimentaçãoToolStripMenuItem";
-            this.movimentaçãoToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
-            this.movimentaçãoToolStripMenuItem.Text = "Alterar Processo";
+            this.movimentaçãoToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
+            this.movimentaçãoToolStripMenuItem.Text = "ADD Movimentação";
             this.movimentaçãoToolStripMenuItem.Click += new System.EventHandler(this.movimentaçãoToolStripMenuItem_Click);
+            // 
+            // cadastrarToolStripMenuItem
+            // 
+            this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
+            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.cadastrarToolStripMenuItem.Text = "Cadastrar";
+            this.cadastrarToolStripMenuItem.Click += new System.EventHandler(this.cadastrarToolStripMenuItem_Click);
             // 
             // processosDataSetBindingSource
             // 
@@ -125,9 +137,9 @@
             // 
             this.btnAlterar.Location = new System.Drawing.Point(846, 159);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.Size = new System.Drawing.Size(103, 23);
             this.btnAlterar.TabIndex = 6;
-            this.btnAlterar.Text = "ALTERAR";
+            this.btnAlterar.Text = "MOVIMENTAÇÂO";
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
@@ -159,6 +171,7 @@
             this.processosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.processosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
+            this.Movimentacao,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
@@ -167,15 +180,21 @@
             this.processosDataGridView.DataSource = this.processosBindingSource;
             this.processosDataGridView.Location = new System.Drawing.Point(71, 198);
             this.processosDataGridView.Name = "processosDataGridView";
-            this.processosDataGridView.Size = new System.Drawing.Size(677, 341);
+            this.processosDataGridView.Size = new System.Drawing.Size(744, 341);
             this.processosDataGridView.TabIndex = 6;
             this.processosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.processosDataGridView_CellContentClick_1);
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Numero";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Numero";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Processo";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // Movimentacao
+            // 
+            this.Movimentacao.DataPropertyName = "Movimentacao";
+            this.Movimentacao.HeaderText = "Movimentacao";
+            this.Movimentacao.Name = "Movimentacao";
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -206,6 +225,12 @@
             this.dataGridViewTextBoxColumn7.DataPropertyName = "Descricao";
             this.dataGridViewTextBoxColumn7.HeaderText = "Descricao";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // consultaToolStripMenuItem
+            // 
+            this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.consultaToolStripMenuItem.Text = "Consulta";
             // 
             // frmHome
             // 
@@ -251,7 +276,10 @@
         private ProcessosDataSet1TableAdapters.ProcessosTableAdapter processosTableAdapter;
         private ProcessosDataSet1TableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView processosDataGridView;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Movimentacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;

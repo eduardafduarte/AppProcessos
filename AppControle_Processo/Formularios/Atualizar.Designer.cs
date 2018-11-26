@@ -92,6 +92,7 @@
             this.voltarToolStripMenuItem.Name = "voltarToolStripMenuItem";
             this.voltarToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.voltarToolStripMenuItem.Text = "Voltar";
+            this.voltarToolStripMenuItem.Click += new System.EventHandler(this.voltarToolStripMenuItem_Click);
             // 
             // lblMovi
             // 
@@ -167,7 +168,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmAtualizar";
-            this.Text = "Atualizar";
+            this.Text = "Movimentação";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.grpProcesso.ResumeLayout(false);

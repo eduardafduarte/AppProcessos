@@ -79,6 +79,8 @@
     <Compile Include="Formularios\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Negocios\ADD_Movimentacao.cs" />
+    <Compile Include="Negocios\cad_Processos.cs" />
     <Compile Include="ProcessosDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,7 +91,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProcessosDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Negocios\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\Cadsatrar2.resx">
       <DependentUpon>Cadsatrar2.cs</DependentUpon>
@@ -144,9 +146,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Negocios\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>

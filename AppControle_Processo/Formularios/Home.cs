@@ -87,5 +87,11 @@ namespace AppControle_Processo.Formularios
         {
 
         }
+
+        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastrar2 janela7 = new frmCadastrar2();
+            janela7.Show();
+        }
     }
 }

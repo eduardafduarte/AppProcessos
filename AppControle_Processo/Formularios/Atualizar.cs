@@ -76,7 +76,7 @@ namespace AppControle_Processo.Formularios
                     Comm.Connection = conn;
 
                     Comm.CommandText = "Update Processos SET( Dt_Movi, Movimentacao) VALUES( @Dt_Movi, @Movimentacao) WHERE (Numero=@Numero))";
-                    Comm.Parameters.AddWithValue("@Dt_Movi", txtDt_Movi.Text);
+                    Comm.Parameters.AddWithValue("@Dt_Movi", Convert.ToDateTime(txtDt_Movi.Text));
                     Comm.Parameters.AddWithValue("@Movimentacao", txtMovimentacao.Text);
 
                     conn.Open();
@@ -110,6 +110,11 @@ namespace AppControle_Processo.Formularios
                     c.Text = "";
                 }
             }
+        }
+
+        private void voltarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
