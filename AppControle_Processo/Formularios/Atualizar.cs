@@ -36,10 +36,11 @@ namespace AppControle_Processo.Formularios
                     SqlCommand Comm = new SqlCommand(); 
                     Comm.Connection = conn;
 
-                    Comm.CommandText = "Update Processos SET( Dt_Movi, Movimentacao) VALUES( @Dt_Movi, @Movimentacao) WHERE (Numero=@Numero))";
-                    Comm.Parameters.AddWithValue("@Dt_Movi", txtDt_Movi.Text);
+                    Comm.CommandText = "Update Processos SET Dt_Movimentacao= @Dt_Movi, Movimentacao= @Movimentacao WHERE Numero=@Numero";
+                    Comm.Parameters.AddWithValue("@Dt_Movi", Convert.ToDateTime(txtDt_Movi.Text));
+                    Comm.Parameters.AddWithValue("@Numero", txtNumero.Text);
                     Comm.Parameters.AddWithValue("@Movimentacao", txtMovimentacao.Text);
-
+                    
                     conn.Open();
                     Comm.ExecuteNonQuery();
                     conn.Close();
@@ -57,10 +58,14 @@ namespace AppControle_Processo.Formularios
                 }
 
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             finally
             {
             }
-            Console.ReadKey();
+            
         }
 
         private void btnArquivar_Click(object sender, EventArgs e)

@@ -165,7 +165,7 @@ namespace AppControle_Processo
             //janela2.Show();
 
 
-            Console.ReadKey();
+          
         }
 
         private void lblNumero_Click(object sender, EventArgs e)

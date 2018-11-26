@@ -20,32 +20,62 @@ namespace AppControle_Processo.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                SqlConnection conn = new SqlConnection
-                    (@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\lP3\AppControle_Processo\AppControle_Processo\Dados\Processos.mdf;Integrated Security=True");
+           
 
-                //Instancio o SqlCommand, responsavel pelas instruções SQL e
-                //Passo ao SqlCommand que a conexão que ele usará é o SqlConnection
-                SqlCommand Comm = new SqlCommand();
-                Comm.Connection = conn;
-                Comm.CommandText = "Select txtPesquisa FROM Processos";
-            
-                conn.Open();
-                Comm.ExecuteNonQuery();
-                conn.Close();
+     //define a string de conexao com provedor caminho e nome do banco de dados
+           string strProvider = (@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\lP3\AppControle_Processo\AppControle_Processo\Dados\Processos.mdf;Integrated Security=True");
 
-                //else
-                //{
-                //    MessageBox.Show("Informe os Valores Corretamente " +   , "Erro do Sistema",
-                //      MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //}
+          //  SqlConnection conexao = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = D:\lP3\AppControle_Processo\AppControle_Processo\Dados\Processos.mdf; Integrated Security = True");
 
-            }
-            finally
-            {
-            }
+          //      conexao.Open();
+
+          ////criando o select e o objeto de consulta
+          //string sql = "select * from Processos where Numero='txtPesquisa'";
+          //      SqlCommand cmd = new SqlCommand(sql, conexao);
+          //      cmd.Connection = conexao;
+          //cmd.CommandText = sql;
+  
+          //// cria o dataadapter...
+          //SqlDataAdapter adapter = new SqlDataAdapter();
+          //      adapter.SelectCommand = cmd;
+
+          //// preenche o dataset...
+          //DataSet dataSet = new DataSet();
+          //      adapter.Fill(dataSet);
+
+          //processosDataGridView.DataSource = dataSet;
+          //  processosDataGridView.DataMember = dataSet.Tables[0].TableName;
+          //conexao.Close();
+
+
+           // //define a instrução SQL
+           string strSql = "SELECT * FROM dbo.Processos where Numero= '"+txtPesquisa.Text+"'";
+           //Convert.ToInt16(txtPesquisa.Text);
+
+           // //cria a conexão com o banco de dados
+            SqlConnection con = new SqlConnection(strProvider);
+           // //cria o objeto command para executar a instruçao sql
+           SqlCommand cmd = new SqlCommand(strSql, con);
+
+           // //abre a conexao
+           con.Open();
+
+           // //define o tipo do comando 
+            cmd.CommandType = CommandType.Text;
+           // //cria um dataadapter
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+           // //cria um objeto datatable
+            DataTable Processos = new DataTable();
+
+           // //preenche o datatable via dataadapter
+           da.Fill(Processos);
+
+           // //atribui o datatable ao datagridview para exibir o resultado
+           processosDataGridView.DataSource = Processos;
+
+
         }
 
         private void movimentaçãoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,6 +122,11 @@ namespace AppControle_Processo.Formularios
         {
             frmCadastrar2 janela7 = new frmCadastrar2();
             janela7.Show();
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+        
         }
     }
 }

@@ -46,12 +46,12 @@
             this.processosDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Movimentacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dt_Movimentacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processosDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processosDataSet)).BeginInit();
@@ -64,8 +64,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.movimentaçãoToolStripMenuItem,
-            this.cadastrarToolStripMenuItem,
-            this.consultaToolStripMenuItem});
+            this.cadastrarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1013, 24);
@@ -102,6 +101,7 @@
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(596, 20);
             this.txtPesquisa.TabIndex = 2;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // btnPesquisar
             // 
@@ -172,6 +172,7 @@
             this.processosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.Movimentacao,
+            this.Dt_Movimentacao,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
@@ -195,6 +196,12 @@
             this.Movimentacao.DataPropertyName = "Movimentacao";
             this.Movimentacao.HeaderText = "Movimentacao";
             this.Movimentacao.Name = "Movimentacao";
+            // 
+            // Dt_Movimentacao
+            // 
+            this.Dt_Movimentacao.DataPropertyName = "Dt_Movimentacao";
+            this.Dt_Movimentacao.HeaderText = "Dt_Movimentacao";
+            this.Dt_Movimentacao.Name = "Dt_Movimentacao";
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -225,12 +232,6 @@
             this.dataGridViewTextBoxColumn7.DataPropertyName = "Descricao";
             this.dataGridViewTextBoxColumn7.HeaderText = "Descricao";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // consultaToolStripMenuItem
-            // 
-            this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.consultaToolStripMenuItem.Text = "Consulta";
             // 
             // frmHome
             // 
@@ -277,9 +278,9 @@
         private ProcessosDataSet1TableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView processosDataGridView;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Movimentacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dt_Movimentacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
